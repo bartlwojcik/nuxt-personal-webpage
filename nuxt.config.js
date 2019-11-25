@@ -4,7 +4,7 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'bartłomiej wójcik',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -14,7 +14,14 @@ export default {
         content: process.env.npm_package_description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href:
+          'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700|Playfair+Display:400,700&display=swap'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -27,7 +34,14 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [
+    '~plugins/bus',
+    '~plugins/vue-scrollto.js',
+    {
+      src: '~/plugins/v-waypoint.client.js',
+      mode: 'client'
+    }
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -42,7 +56,18 @@ export default {
    */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    [
+      'nuxt-fontawesome',
+      {
+        imports: [
+          {
+            set: '@fortawesome/free-brands-svg-icons',
+            icons: ['faLinkedinIn', 'faGithub']
+          }
+        ]
+      }
+    ]
   ],
   /*
    ** Axios module configuration
