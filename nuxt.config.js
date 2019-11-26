@@ -16,6 +16,9 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/png', href: '/icons/favicon-16x16.png' },
+      { rel: 'icon', type: 'image/png', href: '/icons/favicon-32x32.png' },
+      { rel: 'icon', type: 'image/png', href: '/icons/favicon-96x96.png' },
       {
         rel: 'stylesheet',
         href:
@@ -40,7 +43,8 @@ export default {
     {
       src: '~/plugins/v-waypoint.client.js',
       mode: 'client'
-    }
+    },
+    '~/plugins/vuelidate'
   ],
   /*
    ** Nuxt.js dev-modules
@@ -64,6 +68,10 @@ export default {
           {
             set: '@fortawesome/free-brands-svg-icons',
             icons: ['faLinkedinIn', 'faGithub']
+          },
+          {
+            set: '@fortawesome/free-regular-svg-icons',
+            icons: ['faPaperPlane']
           }
         ]
       }
