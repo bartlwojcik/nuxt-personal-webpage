@@ -5,22 +5,45 @@
       <form class="contact__form" @submit.prevent>
         <div class="contact__input">
           <label for="name">Name</label>
-          <input type="text" name="name" />
+          <input v-model="name" type="text" name="name" />
         </div>
-        <div class="contact__input required">
+        <div
+          class="contact__input required"
+          :class="{
+            'error--email': $v.email.$error && !$v.email.email,
+            'error--required': $v.email.$error && !$v.email.required
+          }"
+        >
           <label for="email">Email</label>
-          <input type="email" name="email" />
+          <input
+            v-model.trim.lazy="$v.email.$model"
+            type="email"
+            name="email"
+            @blur="$v.email.$touch()"
+          />
         </div>
         <div class="contact__input">
           <label for="Subject">Subject</label>
-          <input type="text" name="subject" />
+          <input v-model="subject" type="text" name="subject" />
         </div>
-        <div class="contact__input required">
+        <div
+          class="contact__input required"
+          :class="{
+            'error--required': $v.message.$error && !$v.message.required
+          }"
+        >
           <label for="message">Message</label>
-          <textarea rows="4"></textarea>
+          <textarea
+            v-model.trim.lazy="$v.message.$model"
+            rows="4"
+            @blur="$v.message.$touch()"
+          ></textarea>
         </div>
         <div class="flex justify-end">
-          <AppButton disabled>Send</AppButton>
+          <AppButton :disabled="$v.$invalid">
+            <font-awesome-icon class="mr-2" :icon="['far', 'paper-plane']" />
+            Send
+          </AppButton>
         </div>
       </form>
     </div>
@@ -28,11 +51,29 @@
 </template>
 
 <script>
+import { required, email } from 'vuelidate/lib/validators'
 import Button from '../Button'
 
 export default {
   components: {
     AppButton: Button
+  },
+  data() {
+    return {
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    }
+  },
+  validations: {
+    email: {
+      required,
+      email
+    },
+    message: {
+      required
+    }
   }
 }
 </script>
@@ -70,6 +111,19 @@ export default {
         font-weight: bold;
         color: theme('colors.orange-1');
       }
+    }
+
+    &.error--required:after,
+    &.error--email:after {
+      @apply block text-xs text-red;
+    }
+
+    &.error--required:after {
+      content: 'This field is required.';
+    }
+
+    &.error--email:after {
+      content: 'Please provide a valid email address.';
     }
   }
 }

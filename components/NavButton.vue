@@ -1,11 +1,14 @@
 <template>
-  <button
+  <component
+    :is="href ? 'a' : 'button'"
+    :href="href"
+    target="_blank"
     class="w-30 mx-4 font-body font-semibold cursor-pointer focus:outline-none relative navigation-button"
     :class="{ avatar, active }"
-    @click="$scrollTo(target)"
+    @click="handleClick"
   >
     <slot></slot>
-  </button>
+  </component>
 </template>
 
 <script>
@@ -13,7 +16,11 @@ export default {
   props: {
     target: {
       type: String,
-      required: true
+      default: null
+    },
+    href: {
+      type: String,
+      default: null
     },
     avatar: {
       type: Boolean,
@@ -22,6 +29,13 @@ export default {
     active: {
       type: Boolean,
       default: false
+    }
+  },
+  methods: {
+    handleClick() {
+      if (this.target) {
+        this.$scrollTo(this.target)
+      }
     }
   }
 }
