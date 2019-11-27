@@ -46,6 +46,7 @@ export default {
     },
     '~/plugins/vuelidate'
   ],
+  serverMiddleware: [{ path: '/api/contact', handler: '~/api/contact' }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -71,7 +72,11 @@ export default {
           },
           {
             set: '@fortawesome/free-regular-svg-icons',
-            icons: ['faPaperPlane']
+            icons: ['faPaperPlane', 'faEnvelope']
+          },
+          {
+            set: '@fortawesome/free-solid-svg-icons',
+            icons: ['faLongArrowAltLeft']
           }
         ]
       }

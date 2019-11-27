@@ -3,8 +3,9 @@
     :is="tag"
     :href="href"
     target="_blank"
-    class="relative inline-block h-10 mt-2"
+    class="relative inline-block h-10 mt-2 bg-transparent"
     :class="{ disabled }"
+    :type="submit ? 'submit' : 'button'"
     @click="handleCLick($event)"
   >
     <span
@@ -23,6 +24,10 @@ export default {
       default: null
     },
     disabled: {
+      type: Boolean,
+      default: false
+    },
+    submit: {
       type: Boolean,
       default: false
     }
