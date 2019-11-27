@@ -17,8 +17,12 @@
         <font-awesome-icon class="mr-2" :icon="['fab', 'linkedin-in']" />
         LinkedIn
       </AppButton>
-      <AppButton href="https://github.com/bartlwojcik">
+      <AppButton href="https://github.com/bartlwojcik" class="mr-6">
         <font-awesome-icon class="mr-2" :icon="['fab', 'github']" /> GitHub
+      </AppButton>
+      <AppButton href="mailto:bartlomiejwojcik92@gmail.com">
+        <font-awesome-icon class="mr-2" :icon="['far', 'envelope']" />
+        Say Hi
       </AppButton>
     </div>
   </div>

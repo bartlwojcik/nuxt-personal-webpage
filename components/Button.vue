@@ -52,6 +52,7 @@ a {
   outline: none;
   z-index: 1;
   cursor: pointer;
+  min-width: 120px;
 
   &:before {
     content: '';
