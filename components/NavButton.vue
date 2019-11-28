@@ -7,7 +7,7 @@
     :class="{ avatar, active }"
     @click="handleClick"
   >
-    <slot></slot>
+    <span class="relative z-10"><slot></slot></span>
   </component>
 </template>
 
@@ -36,6 +36,7 @@ export default {
       if (this.target) {
         this.$scrollTo(this.target)
       }
+      this.$emit('clicked')
     }
   }
 }
@@ -52,7 +53,7 @@ export default {
     height: 100%;
     max-height: 0;
     background-color: theme('colors.orange-1');
-    z-index: -1;
+    // z-index: -1;
     transition: max-height 0.3s;
   }
 
@@ -63,9 +64,6 @@ export default {
   }
 
   &.avatar {
-    border: 1px solid black;
-    border-radius: 50%;
-
     &:before {
       border-radius: 50%;
       max-width: 2rem;

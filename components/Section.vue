@@ -6,6 +6,7 @@
       callback: onWaypoint,
       options: { threshold: [0, 1] }
     }"
+    class="px-4 sm:px-8"
     :class="[id, { right }]"
   >
     <slot></slot>

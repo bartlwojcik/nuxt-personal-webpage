@@ -2,7 +2,7 @@
   <div class="flex mb-8 font-body">
     <div class="w-4 h-4 mt-2 mr-4 bg-orange-1"></div>
     <div>
-      <h4 class="text-xl font-block font-medium">
+      <h4 class="text-md sm:text-xl font-block font-medium">
         <span class="relative inline-block position"
           ><slot name="position"></slot
         ></span>

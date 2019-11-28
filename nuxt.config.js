@@ -76,7 +76,7 @@ export default {
           },
           {
             set: '@fortawesome/free-solid-svg-icons',
-            icons: ['faLongArrowAltLeft']
+            icons: ['faLongArrowAltLeft', 'faLongArrowAltRight', 'faBars']
           }
         ]
       }

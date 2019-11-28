@@ -1,6 +1,6 @@
 <template>
   <div class="section__content">
-    <div class="contact">
+    <div class="w-full sm:w-10/12 contact">
       <h2 class="mb-6 text-4xl font-display">Say Hi!</h2>
 
       <!-- Contact form elemenet -->
@@ -163,7 +163,7 @@ export default {
 
 <style lang="scss" scoped>
 .contact {
-  @apply w-10/12 bg-white shadow-md p-8;
+  @apply bg-white shadow-md p-8;
 
   &__message {
     @apply w-full py-4 flex flex-col justify-center items-center font-body;

@@ -76,4 +76,11 @@ a {
     cursor: not-allowed;
   }
 }
+
+@media only screen and (max-width: 640px) {
+  button,
+  a {
+    min-width: 60px;
+  }
+}
 </style>

@@ -1,19 +1,36 @@
 <template>
   <div class="bg-gray content">
-    <Navbar />
+    <Navbar :active-section="activeSection" />
     <nuxt />
     <AppFooter />
+    <NavDrawer v-if="isNavDrawerVisible" :active-section="activeSection" />
   </div>
 </template>
 
 <script>
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/Navigation/Navbar'
+import NavDrawer from '@/components/Navigation/NavDrawer'
 import Footer from '@/components/Footer'
 
 export default {
   components: {
     Navbar,
+    NavDrawer,
     AppFooter: Footer
+  },
+  data() {
+    return {
+      isNavDrawerVisible: false,
+      activeSection: 'home'
+    }
+  },
+  mounted() {
+    this.$bus.$on('toggle-nav-drawer', (val) => {
+      this.isNavDrawerVisible = val
+    })
+    this.$bus.$on('waypoint-change', (section) => {
+      this.activeSection = section
+    })
   }
 }
 </script>
