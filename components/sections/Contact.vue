@@ -136,6 +136,12 @@ export default {
   methods: {
     async send() {
       try {
+        this.$v.$touch()
+
+        if (this.$v.$invalid) {
+          return
+        }
+
         const { data } = await axios.post(CONTACT_URL, {
           name: this.name,
           email: this.email,
