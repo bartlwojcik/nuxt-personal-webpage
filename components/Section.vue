@@ -63,7 +63,7 @@ section {
     }
 
     &.experience {
-      background-image: url('/illustrations/laravel_and_vue.svg');
+      background-image: url('/illustrations/online_cv.svg');
     }
 
     &.contact {

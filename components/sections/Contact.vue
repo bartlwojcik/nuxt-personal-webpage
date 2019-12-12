@@ -4,100 +4,118 @@
       <h2 class="mb-6 text-4xl font-display">Say Hi!</h2>
 
       <!-- Contact form elemenet -->
-      <template v-if="status === 'init' || status === 'inProgress'">
-        <p v-if="status === 'init'" class="mb-6 text-sm font-body">
-          Feel free to make use of the contact form or reach me by writing
-          directly to
-          <a
-            class="font-medium email-link"
-            href="mailto:bartlomiejwojcik92@gmai.com"
-          >
-            bartlomiejwojcik92@gmail.com </a
-          >.
-        </p>
-        <form class="contact__form" @submit.prevent="send">
-          <div
-            class="contact__input required"
-            :class="{
-              'error--email': $v.email.$error && !$v.email.email,
-              'error--required': $v.email.$error && !$v.email.required
-            }"
-          >
-            <label for="email">Email</label>
-            <input
-              v-model.trim.lazy="$v.email.$model"
-              type="email"
-              name="email"
-              @blur="$v.email.$touch()"
-            />
-          </div>
-          <div
-            class="contact__input required"
-            :class="{
-              'error--required': $v.subject.$error && !$v.subject.required
-            }"
-          >
-            <label for="Subject">Subject</label>
-            <input
-              v-model.trim.lazy="$v.subject.$model"
-              type="text"
-              name="subject"
-              @blur="$v.subject.$touch()"
-            />
-          </div>
-          <div
-            class="contact__input required"
-            :class="{
-              'error--required': $v.msg.$error && !$v.msg.required
-            }"
-          >
-            <label for="msg">Message</label>
-            <textarea
-              v-model.trim="$v.msg.$model"
-              rows="4"
-              @blur="$v.msg.$touch()"
-            ></textarea>
-          </div>
-          <div class="flex justify-end">
-            <AppButton :disabled="$v.$invalid" submit>
-              <font-awesome-icon class="mr-2" :icon="['far', 'paper-plane']" />
-              Send
-            </AppButton>
-          </div>
-        </form>
-      </template>
+      <transition name="fade" mode="out-in">
+        <div v-if="status === 'init' || status === 'inProgress'" key="form">
+          <p v-if="status === 'init'" class="mb-6 text-sm font-body">
+            Feel free to make use of the contact form or reach me by writing
+            directly to
+            <a
+              class="font-medium email-link"
+              href="mailto:bartlomiejwojcik92@gmai.com"
+            >
+              bartlomiejwojcik92@gmail.com </a
+            >.
+          </p>
+          <form class="contact__form" @submit.prevent="send">
+            <div
+              class="contact__input required"
+              :class="{
+                'error--email': $v.email.$error && !$v.email.email,
+                'error--required': $v.email.$error && !$v.email.required
+              }"
+            >
+              <label for="email">Email</label>
+              <input
+                v-model.trim.lazy="$v.email.$model"
+                type="email"
+                name="email"
+                @blur="$v.email.$touch()"
+              />
+            </div>
+            <div
+              class="contact__input required"
+              :class="{
+                'error--required': $v.subject.$error && !$v.subject.required
+              }"
+            >
+              <label for="Subject">Subject</label>
+              <input
+                v-model.trim.lazy="$v.subject.$model"
+                type="text"
+                name="subject"
+                @blur="$v.subject.$touch()"
+              />
+            </div>
+            <div
+              class="contact__input required"
+              :class="{
+                'error--required': $v.msg.$error && !$v.msg.required
+              }"
+            >
+              <label for="msg">Message</label>
+              <textarea
+                v-model.trim="$v.msg.$model"
+                rows="4"
+                @blur="$v.msg.$touch()"
+              ></textarea>
+            </div>
+            <div class="flex justify-end">
+              <AppButton :disabled="$v.$invalid" submit>
+                <font-awesome-icon
+                  class="mr-2"
+                  :icon="['far', 'paper-plane']"
+                />
+                Send
+              </AppButton>
+            </div>
+          </form>
+        </div>
+        <!-- </transition> -->
 
-      <!-- Success screen -->
-      <div v-else-if="status === 'success'" class="contact__message">
-        <p class="mb-6 text-center">
-          Thanks for the contact!<br />I'll try to respond as soon as possible.
-        </p>
-        <AppButton @clicked="reset">
-          <font-awesome-icon
-            class="mr-2"
-            :icon="['fas', 'long-arrow-alt-left']"
-          />
-          Back
-        </AppButton>
-      </div>
-
-      <!-- Error screen -->
-      <div v-else-if="status === 'error'" class="contact__message">
-        <p class="mb-6">Ups... something went wrong.</p>
-        <div class="flex items-center justify-center">
-          <AppButton class="mr-4" @clicked="status = 'init'">
+        <!-- Success screen -->
+        <!-- <transition name="fade" mode="in-out"> -->
+        <div
+          v-else-if="status === 'success'"
+          key="success"
+          class="contact__message"
+        >
+          <p class="mb-6 text-center">
+            Thanks for the contact!<br />I'll try to respond as soon as
+            possible.
+          </p>
+          <AppButton @clicked="reset">
             <font-awesome-icon
               class="mr-2"
               :icon="['fas', 'long-arrow-alt-left']"
             />
             Back
           </AppButton>
-          <AppButton href="mailto:bartlomiejwojcik92@gmail.com" class="ml-4">
-            <font-awesome-icon class="mr-2" :icon="['far', 'envelope']" />
-            Use email client
-          </AppButton>
         </div>
-      </div>
+        <!-- </transition> -->
+
+        <!-- Error screen -->
+        <!-- <transition name="fade" mode="in-out"> -->
+        <div
+          v-else-if="status === 'error'"
+          key="error"
+          class="contact__message"
+        >
+          <p class="mb-6">Ups... something went wrong.</p>
+          <div class="flex items-center justify-center">
+            <AppButton class="mr-4" @clicked="status = 'init'">
+              <font-awesome-icon
+                class="mr-2"
+                :icon="['fas', 'long-arrow-alt-left']"
+              />
+              Back
+            </AppButton>
+            <AppButton href="mailto:bartlomiejwojcik92@gmail.com" class="ml-4">
+              <font-awesome-icon class="mr-2" :icon="['far', 'envelope']" />
+              Use email client
+            </AppButton>
+          </div>
+        </div>
+      </transition>
     </div>
   </div>
 </template>
