@@ -56,6 +56,10 @@ html {
   z-index: -10;
 }
 
+::selection {
+  background: theme('colors.orange-1');
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.3s ease;
