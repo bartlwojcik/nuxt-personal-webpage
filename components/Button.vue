@@ -4,7 +4,7 @@
     :href="href"
     target="_blank"
     class="relative inline-block h-10 mt-2 bg-transparent"
-    :class="{ disabled }"
+    :class="{ disabled, icon }"
     :type="submit ? 'submit' : 'button'"
     @click="handleCLick($event)"
   >
@@ -28,6 +28,10 @@ export default {
       default: false
     },
     submit: {
+      type: Boolean,
+      default: false
+    },
+    icon: {
       type: Boolean,
       default: false
     }
@@ -75,6 +79,10 @@ a {
     opacity: 0.5;
     cursor: not-allowed;
   }
+}
+
+.icon {
+  min-width: 60px;
 }
 
 @media only screen and (max-width: 640px) {
