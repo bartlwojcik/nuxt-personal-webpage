@@ -3,7 +3,7 @@
     :is="href ? 'a' : 'button'"
     :href="href"
     target="_blank"
-    class="w-30 mx-4 font-body font-semibold cursor-pointer focus:outline-none relative navigation-button"
+    class="relative mx-4 font-semibold cursor-pointer w-30 font-body focus:outline-none navigation-button"
     :class="{ avatar, active }"
     @click="handleClick"
   >
@@ -53,7 +53,6 @@ export default {
     height: 100%;
     max-height: 0;
     background-color: theme('colors.orange-1');
-    // z-index: -1;
     transition: max-height 0.3s;
   }
 

@@ -25,8 +25,6 @@ $spinner-size: 2em;
   &:after {
     content: '';
     position: absolute;
-    // top: calc(50% - ($spinner-size / 2));
-    // left: calc(50% - ($spinner-size / 2));
     top: 0;
     left: 0;
     display: block;

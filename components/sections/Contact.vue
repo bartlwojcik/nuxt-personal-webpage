@@ -70,10 +70,8 @@
             </div>
           </form>
         </div>
-        <!-- </transition> -->
 
         <!-- Success screen -->
-        <!-- <transition name="fade" mode="in-out"> -->
         <div
           v-else-if="status === 'success'"
           key="success"
@@ -91,10 +89,8 @@
             Back
           </AppButton>
         </div>
-        <!-- </transition> -->
 
         <!-- Error screen -->
-        <!-- <transition name="fade" mode="in-out"> -->
         <div
           v-else-if="status === 'error'"
           key="error"
