@@ -8,7 +8,7 @@
       learn how to code. Now, at the beginning of 2020, I consider it one of the
       best possible decisions.<br /><br />Since then I've been gaining
       experience as Frontend Developer, Full Stack Developer, and UX/UI Designer
-      while working bothon individual projects and in international teams of
+      while working both on individual projects and in international teams of
       several people.<br /><br />I am still developing my coding skills in
       JavaScript (mainly Vue.js, but I've also worked with React) and PHP
       (Laravel), but also soft skills required to be a team player, especially
