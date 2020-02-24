@@ -1,4 +1,4 @@
-<template>
+<template functional>
   <div class="section__content">
     <h2 class="mb-6 text-4xl font-display">Who am I?</h2>
     <p class="pr-12 text-sm width-full font-body">
@@ -16,6 +16,12 @@
     </p>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'About'
+}
+</script>
 
 <style lang="scss" scoped>
 .section_content p {

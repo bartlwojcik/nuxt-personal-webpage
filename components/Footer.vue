@@ -1,16 +1,21 @@
-<template>
+<template functional>
   <footer class="w-full px-10 py-20 text-center bg-white shadow-md">
     <div class="flex justify-center">
-      <AppButton
+      <component
+        :is="injections.components.AppButton"
         href="https://www.linkedin.com/in/bartlomiejwojcik92/"
         class="mr-6"
         icon
       >
         <font-awesome-icon class="mr-0" :icon="['fab', 'linkedin-in']" />
-      </AppButton>
-      <AppButton href="https://github.com/bartlwojcik" icon>
+      </component>
+      <component
+        :is="injections.components.AppButton"
+        href="https://github.com/bartlwojcik"
+        icon
+      >
         <font-awesome-icon class="mr-0" :icon="['fab', 'github']" />
-      </AppButton>
+      </component>
     </div>
     <p class="mt-8 text-sm font-display credits">
       Created by Bartłomiej Wójcik with
@@ -39,8 +44,12 @@
 import Button from './Button'
 
 export default {
-  components: {
-    AppButton: Button
+  inject: {
+    components: {
+      default: {
+        AppButton: Button
+      }
+    }
   },
   computed: {
     year() {

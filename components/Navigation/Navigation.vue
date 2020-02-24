@@ -21,6 +21,7 @@
 import NavButton from '../NavButton'
 
 export default {
+  name: 'Navigation',
   components: {
     NavButton
   },

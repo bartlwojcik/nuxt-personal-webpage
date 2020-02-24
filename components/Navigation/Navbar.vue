@@ -15,6 +15,7 @@ import Navigation from './Navigation'
 import Header from './Header'
 
 export default {
+  name: 'Navbar',
   components: {
     AppHeader: Header,
     Navigation

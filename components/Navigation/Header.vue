@@ -1,8 +1,8 @@
-<template>
-  <div class="flex items-center -m-4 sm:m-2 relative z-30">
-    <Avatar />
+<template functional>
+  <div class="relative z-30 flex items-center -m-4 sm:m-2">
+    <component :is="injections.components.Avatar" />
     <p
-      class="font-display font-bold text-2xl name"
+      class="text-2xl font-bold font-display name"
       :class="{ 'opacity-0': !scrolled }"
     >
       Bartłomiej Wójcik
@@ -14,8 +14,13 @@
 import Avatar from './Avatar'
 
 export default {
-  components: {
-    Avatar
+  name: 'Header',
+  inject: {
+    components: {
+      default: {
+        Avatar
+      }
+    }
   },
   props: {
     scrolled: {

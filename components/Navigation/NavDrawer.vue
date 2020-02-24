@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed top-0 left-0 z-20 w-full h-full bg-white px-4">
+  <nav class="fixed top-0 left-0 z-20 w-full h-full px-4 bg-white">
     <div class="flex justify-end h-16">
       <button @click="closeDrawer">
         <font-awesome-icon
@@ -8,7 +8,7 @@
         />
       </button>
     </div>
-    <ul class="px-8 py-4 text-3xl font-body font-medium">
+    <ul class="px-8 py-4 text-3xl font-medium font-body">
       <li class="py-2">
         <NavButton
           target="#home"
@@ -53,6 +53,7 @@
 import NavButton from '../NavButton'
 
 export default {
+  name: 'NavDrawer',
   components: {
     NavButton
   },

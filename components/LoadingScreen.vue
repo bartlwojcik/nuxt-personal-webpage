@@ -1,11 +1,13 @@
-<template>
+<template funcitonal>
   <div class="loading-screen">
     <div class="spinner">SPINNER</div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'LoadingScreen'
+}
 </script>
 
 <style lang="scss" scoped>

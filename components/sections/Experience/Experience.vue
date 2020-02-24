@@ -1,7 +1,7 @@
-<template>
+<template functional>
   <div class="section__content">
     <h2 class="mb-8 text-4xl font-display">IT Experience</h2>
-    <ExperienceItem>
+    <component :is="injections.components.ExperienceItem">
       <template v-slot:position>
         Full Stack Developer
       </template>
@@ -11,8 +11,8 @@
       <template v-slot:period>
         April 2018 - Now
       </template>
-    </ExperienceItem>
-    <ExperienceItem>
+    </component>
+    <component :is="injections.components.ExperienceItem">
       <template v-slot:position>
         Junior Frontend Developer
       </template>
@@ -22,8 +22,8 @@
       <template v-slot:period>
         October 2017 - March 2018
       </template>
-    </ExperienceItem>
-    <ExperienceItem>
+    </component>
+    <component :is="injections.components.ExperienceItem">
       <template v-slot:position>
         UI/UX Designer
       </template>
@@ -33,8 +33,8 @@
       <template v-slot:period>
         June 2017 - September 2017
       </template>
-    </ExperienceItem>
-    <ExperienceItem>
+    </component>
+    <component :is="injections.components.ExperienceItem">
       <template v-slot:position>
         Junior Frontend Developer
       </template>
@@ -44,7 +44,7 @@
       <template v-slot:period>
         November 2016 - May 2017
       </template>
-    </ExperienceItem>
+    </component>
   </div>
 </template>
 
@@ -52,8 +52,13 @@
 import ExperienceItem from './ExperienceItem'
 
 export default {
-  components: {
-    ExperienceItem
+  name: 'Experience',
+  inject: {
+    components: {
+      default: {
+        ExperienceItem
+      }
+    }
   }
 }
 </script>

@@ -1,12 +1,16 @@
-<template>
+<template functional>
   <component
-    :is="tag"
-    :href="href"
+    :is="props.href ? 'a' : 'button'"
+    :href="props.href"
     target="_blank"
-    class="relative inline-block h-10 mt-2 bg-transparent"
-    :class="{ disabled, icon }"
-    :type="submit ? 'submit' : 'button'"
-    @click="handleCLick($event)"
+    class="relative inline-block h-10 mt-2 bg-transparent custom-button"
+    :class="[
+      { disabled: props.disabled },
+      { icon: props.icon },
+      data.staticClass
+    ]"
+    :type="props.submit ? 'submit' : 'button'"
+    @click="props.href ? '' : listeners.clicked"
   >
     <span
       class="flex items-center justify-center block h-full px-4 text-sm font-medium border-2 border-black border-solid font-body"
@@ -18,6 +22,7 @@
 
 <script>
 export default {
+  name: 'Button',
   props: {
     href: {
       type: String,
@@ -35,23 +40,12 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-  computed: {
-    tag() {
-      return this.href ? 'a' : 'button'
-    }
-  },
-  methods: {
-    handleCLick() {
-      if (!this.href) this.$emit('clicked')
-    }
   }
 }
 </script>
 
-<style lang="scss" scoped>
-button,
-a {
+<style lang="scss">
+.custom-button {
   position: relative;
   outline: none;
   z-index: 1;

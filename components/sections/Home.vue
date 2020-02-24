@@ -1,4 +1,4 @@
-<template>
+<template functional>
   <div class="h-full p-4 mx-4 home">
     <div class="flex items-center text-4xl md:text-5xl font-display">
       <h1 class="z-0">
@@ -10,7 +10,8 @@
       </h1>
     </div>
     <div class="mt-4">
-      <AppButton
+      <component
+        :is="injections.components.AppButton"
         href="https://www.linkedin.com/in/bartlomiejwojcik92/"
         class="mr-6"
       >
@@ -19,15 +20,22 @@
           :icon="['fab', 'linkedin-in']"
         />
         <span class="hidden sm:block"> LinkedIn</span>
-      </AppButton>
-      <AppButton href="https://github.com/bartlwojcik" class="mr-6">
+      </component>
+      <component
+        :is="injections.components.AppButton"
+        href="https://github.com/bartlwojcik"
+        class="mr-6"
+      >
         <font-awesome-icon class="mr-0 sm:mr-2" :icon="['fab', 'github']" />
         <span class="hidden sm:block"> GitHub</span>
-      </AppButton>
-      <AppButton href="mailto:bartlomiejwojcik92@gmail.com">
+      </component>
+      <component
+        :is="injections.components.AppButton"
+        href="mailto:bartlomiejwojcik92@gmail.com"
+      >
         <font-awesome-icon class="mr-0 sm:mr-2" :icon="['far', 'envelope']" />
         <span class="hidden sm:block"> Say Hi</span>
-      </AppButton>
+      </component>
     </div>
   </div>
 </template>
@@ -36,8 +44,13 @@
 import Button from '../Button'
 
 export default {
-  components: {
-    AppButton: Button
+  name: 'Home',
+  inject: {
+    components: {
+      default: {
+        AppButton: Button
+      }
+    }
   }
 }
 </script>
