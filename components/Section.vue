@@ -55,19 +55,20 @@ section {
     }
 
     &.home {
-      background-image: url('/illustrations/web_developer.svg');
+      background-image: url('/illustrations/undraw_feeling_proud_qne1.svg');
     }
 
     &.about {
-      background-image: url('/illustrations/innovative.svg');
+      background-image: url('/illustrations/undraw_innovative_b409.svg');
     }
 
     &.experience {
-      background-image: url('/illustrations/online_cv.svg');
+      background-size: 35%;
+      background-image: url('/illustrations/undraw_hacker_mindset_gjwq.svg');
     }
 
     &.contact {
-      background-image: url('/illustrations/manage_chats.svg');
+      background-image: url('/illustrations/undraw_manage_chats_ylx0.svg');
     }
 
     .section__content {
