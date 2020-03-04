@@ -1,5 +1,5 @@
 <template functional>
-  <div class="section__content">
+  <div class="px-4 section__content sm:px-0">
     <h2 class="mb-8 text-4xl font-display">IT Experience</h2>
     <component :is="injections.components.ExperienceItem">
       <template v-slot:position>

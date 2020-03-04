@@ -10,7 +10,7 @@
       data.staticClass
     ]"
     :type="props.submit ? 'submit' : 'button'"
-    @click="props.href ? '' : listeners.clicked"
+    v-on="listeners"
   >
     <span
       class="flex items-center justify-center block h-full px-4 text-sm font-medium border-2 border-black border-solid font-body"
@@ -50,7 +50,7 @@ export default {
   outline: none;
   z-index: 1;
   cursor: pointer;
-  min-width: 120px;
+  min-width: 60px;
 
   &:before {
     content: '';
@@ -59,7 +59,7 @@ export default {
     right: 0.4em;
     width: 100%;
     height: 100%;
-    background-color: theme('colors.orange-1');
+    background-color: theme('colors.accent');
     z-index: -1;
     transition: top 0.3s, right 0.3s;
   }
@@ -73,16 +73,15 @@ export default {
     opacity: 0.5;
     cursor: not-allowed;
   }
-}
 
-.icon {
-  min-width: 60px;
-}
-
-@media only screen and (max-width: 640px) {
-  button,
-  a {
+  &.icon {
     min-width: 60px;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .custom-button {
+    min-width: 120px;
   }
 }
 </style>

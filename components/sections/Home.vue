@@ -1,4 +1,4 @@
-<template functional>
+<template>
   <div class="h-full p-4 mx-4 home">
     <div class="flex items-center text-4xl md:text-5xl font-display">
       <h1 class="z-0">
@@ -10,8 +10,7 @@
       </h1>
     </div>
     <div class="mt-4">
-      <component
-        :is="injections.components.AppButton"
+      <AppButton
         href="https://www.linkedin.com/in/bartlomiejwojcik92/"
         class="mr-6"
       >
@@ -20,22 +19,15 @@
           :icon="['fab', 'linkedin-in']"
         />
         <span class="hidden sm:block"> LinkedIn</span>
-      </component>
-      <component
-        :is="injections.components.AppButton"
-        href="https://github.com/bartlwojcik"
-        class="mr-6"
-      >
+      </AppButton>
+      <AppButton href="https://github.com/bartlwojcik" class="mr-6">
         <font-awesome-icon class="mr-0 sm:mr-2" :icon="['fab', 'github']" />
         <span class="hidden sm:block"> GitHub</span>
-      </component>
-      <component
-        :is="injections.components.AppButton"
-        href="mailto:bartlomiejwojcik92@gmail.com"
-      >
+      </AppButton>
+      <AppButton @click="scrollToContact">
         <font-awesome-icon class="mr-0 sm:mr-2" :icon="['far', 'envelope']" />
         <span class="hidden sm:block"> Say Hi</span>
-      </component>
+      </AppButton>
     </div>
   </div>
 </template>
@@ -45,11 +37,13 @@ import Button from '../Button'
 
 export default {
   name: 'Home',
-  inject: {
-    components: {
-      default: {
-        AppButton: Button
-      }
+  components: {
+    AppButton: Button
+  },
+  methods: {
+    scrollToContact() {
+      console.log('dupa')
+      this.$scrollTo('#contact')
     }
   }
 }
@@ -64,7 +58,7 @@ export default {
     left: -0.1em;
     width: 4.9em;
     height: 1em;
-    background-color: theme('colors.orange-1');
+    background-color: theme('colors.accent');
     z-index: -1;
   }
 }

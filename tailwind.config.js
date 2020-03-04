@@ -18,10 +18,7 @@ module.exports = {
         gray: '#f0f2f7',
         lightgray: '#f8f9fb',
         purple: '#4f6de4',
-        'orange-1': '#f7c34e',
-        'orange-2': '#f4ae33',
-        'orange-3': '#f29b36',
-        'orange-4': '#ed733a'
+        accent: '#ffdb00'
       }
     }
   },

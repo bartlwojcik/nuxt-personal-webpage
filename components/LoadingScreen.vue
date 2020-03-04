@@ -32,7 +32,7 @@ $spinner-size: 2em;
     display: block;
     width: $spinner-size;
     height: $spinner-size;
-    border: 4px solid theme('colors.orange-1');
+    border: 4px solid theme('colors.accent');
     border-radius: 50%;
     border-right-color: transparent;
     border-top-color: transparent;

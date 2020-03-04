@@ -1,7 +1,7 @@
 <template functional>
-  <div class="section__content">
+  <div class="px-4 section__content sm:px-0">
     <h2 class="mb-6 text-4xl font-display">Who am I?</h2>
-    <p class="pr-12 text-sm width-full font-body">
+    <p class="text-sm md:pr-12 width-full font-body">
       I am a Full Stack Developer and a good design enthusiast.<br /><br />
       In 2016, after I obtained my Master's degree in Mechatronic Design, I
       decided to give up the 3D Printing industry and hardware engineering and

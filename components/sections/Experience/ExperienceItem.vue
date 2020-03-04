@@ -1,6 +1,6 @@
 <template functional>
   <div class="flex mb-8 font-body">
-    <div class="w-4 h-4 mt-2 mr-4 bg-orange-1"></div>
+    <div class="w-4 h-4 mt-2 mr-4 bg-accent"></div>
     <div>
       <h4 class="font-medium text-md sm:text-xl font-block">
         <span class="relative inline-block position"

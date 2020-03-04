@@ -81,7 +81,7 @@
             Thanks for the contact!<br />I'll try to respond as soon as
             possible.
           </p>
-          <AppButton @clicked="reset">
+          <AppButton @click="reset">
             <font-awesome-icon
               class="mr-2"
               :icon="['fas', 'long-arrow-alt-left']"
@@ -98,7 +98,7 @@
         >
           <p class="mb-6">Ups... something went wrong.</p>
           <div class="flex items-center justify-center">
-            <AppButton class="mr-4" @clicked="status = 'init'">
+            <AppButton class="mr-4" @click="status = 'init'">
               <font-awesome-icon
                 class="mr-2"
                 :icon="['fas', 'long-arrow-alt-left']"
@@ -202,7 +202,7 @@ export default {
       width: 100%;
       height: 100%;
       max-height: 20%;
-      background-color: theme('colors.orange-1');
+      background-color: theme('colors.accent');
       z-index: -1;
       transition: max-height 0.3s;
     }
@@ -236,7 +236,7 @@ export default {
       label:after {
         content: ' *';
         font-weight: bold;
-        color: theme('colors.orange-1');
+        color: theme('colors.accent');
       }
     }
 

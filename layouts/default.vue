@@ -3,7 +3,9 @@
     <Navbar :active-section="activeSection" />
     <nuxt />
     <AppFooter />
-    <NavDrawer v-if="isNavDrawerVisible" :active-section="activeSection" />
+    <transition name="slide-left">
+      <NavDrawer v-if="isNavDrawerVisible" :active-section="activeSection" />
+    </transition>
   </div>
 </template>
 
@@ -57,7 +59,7 @@ html {
 }
 
 ::selection {
-  background: theme('colors.orange-1');
+  background: theme('colors.accent');
 }
 
 .fade-enter-active,
@@ -68,5 +70,16 @@ html {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+.slide-left-enter-active,
+.slide-left-leave-active {
+  transition: all 0.3s ease;
+  transform: translateX(0);
+}
+
+.slide-left-enter,
+.slide-left-leave-to {
+  transform: translateX(100%);
 }
 </style>

@@ -19,20 +19,23 @@
     </div>
     <p class="mt-8 text-sm font-display credits">
       Created by Bartłomiej Wójcik with
-      <a href="https://nuxtjs.org/">Nuxt.js</a>,
-      <a href="https://tailwindcss.com/">Tailwind CSS</a>
+      <a href="https://nuxtjs.org/" target="_blank">Nuxt.js</a>,
+      <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>
       some <font-awesome-icon :icon="['fas', 'coffee']" /> and
       <font-awesome-icon :icon="['fas', 'heart']" class="heart" /> for coding
-      &copy; <span class="font-bold">{{ year }}</span
+      &copy; <span class="font-bold">{{ new Date().getFullYear() }}</span
       >.
     </p>
     <p class="mt-2 text-sm font-display credits">
       All illustrations created by the amazing
-      <a href="https://twitter.com/ninalimpi">Katerina Limpitsouni</a>
-      (<a href="https://undraw.co/">unDraw.co</a>).
+      <a href="https://twitter.com/ninalimpi" target="_blank">
+        Katerina Limpitsouni
+      </a>
+      (<a href="https://undraw.co/" target="_blank">unDraw.co</a>).
     </p>
     <p class="mt-2 text-sm font-display credits">
-      All fonts by <a href="https://fontawesome.com/">Font Awesome</a>.
+      All fonts by
+      <a href="https://fontawesome.com/" target="_blank">Font Awesome</a>.
     </p>
     <p class="mt-10 text-lg font-bold font-display">
       Thanks for stopping by!
@@ -44,16 +47,12 @@
 import Button from './Button'
 
 export default {
+  name: 'Footer',
   inject: {
     components: {
       default: {
         AppButton: Button
       }
-    }
-  },
-  computed: {
-    year() {
-      return new Date().getFullYear()
     }
   }
 }
