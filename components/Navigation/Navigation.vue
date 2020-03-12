@@ -3,27 +3,30 @@
     <button class="md:hidden" @click="$bus.$emit('toggle-nav-drawer', true)">
       <font-awesome-icon :icon="['fas', 'bars']" class="text-xl" />
     </button>
-    <div class="hidden md:block">
+    <div class="hidden md:flex md:flex-no-wrap md:block">
       <NavButton target="#about" :active="activeSection === 'about'">
-        About me
+        {{ $t('nav.about') }}
       </NavButton>
       <NavButton target="#experience" :active="activeSection === 'experience'">
-        My experience
+        {{ $t('nav.experience') }}
       </NavButton>
       <NavButton target="#contact" :active="activeSection === 'contact'">
-        Contact me
+        {{ $t('nav.contact') }}
       </NavButton>
+      <LangSelect />
     </div>
   </div>
 </template>
 
 <script>
 import NavButton from '../NavButton'
+import LangSelect from './LangSelect'
 
 export default {
   name: 'Navigation',
   components: {
-    NavButton
+    NavButton,
+    LangSelect
   },
   props: {
     activeSection: {

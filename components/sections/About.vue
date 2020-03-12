@@ -1,18 +1,9 @@
 <template functional>
   <div class="px-4 section__content sm:px-0">
-    <h2 class="mb-6 text-4xl font-display">Who am I?</h2>
+    <h2 class="mb-6 text-4xl font-display">{{ parent.$t('about.header') }}</h2>
     <p class="text-sm md:pr-12 width-full font-body">
-      I am a Full Stack Developer and a good design enthusiast.<br /><br />
-      In 2016, after I obtained my Master's degree in Mechatronic Design, I
-      decided to give up the 3D Printing industry and hardware engineering and
-      learn how to code. Now, at the beginning of 2020, I consider it one of the
-      best possible decisions.<br /><br />Since then I've been gaining
-      experience as Frontend Developer, Full Stack Developer, and UX/UI Designer
-      while working both on individual projects and in international teams of
-      several people.<br /><br />I am still developing my coding skills in
-      JavaScript (mainly Vue.js, but I've also worked with React) and PHP
-      (Laravel), but also soft skills required to be a team player, especially
-      during remote work.
+      <!-- {{ parent.$t('about.content_old') }}<br />-->
+      {{ parent.$t('about.content') }}
     </p>
   </div>
 </template>
@@ -24,7 +15,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.section_content p {
+.section__content p {
   text-align: justify;
+  white-space: pre-line;
 }
 </style>

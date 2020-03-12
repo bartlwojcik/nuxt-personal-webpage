@@ -63,6 +63,24 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     [
+      'nuxt-i18n',
+      {
+        locales: [
+          {
+            code: 'en',
+            file: 'en.js'
+          },
+          {
+            code: 'pl',
+            file: 'pl.js'
+          }
+        ],
+        lazy: true,
+        langDir: 'lang/',
+        defaultLocale: 'en'
+      }
+    ],
+    [
       'nuxt-fontawesome',
       {
         imports: [

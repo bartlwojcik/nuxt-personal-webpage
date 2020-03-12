@@ -6,7 +6,7 @@
         <span class="relative inline-block position"
           ><slot name="position"></slot
         ></span>
-        at
+        {{ parent.$t('experience.at') }}
         <span class="relative"><slot name="company"></slot></span>
       </h4>
       <p>

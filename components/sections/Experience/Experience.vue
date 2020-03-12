@@ -1,6 +1,8 @@
 <template functional>
   <div class="px-4 section__content sm:px-0">
-    <h2 class="mb-8 text-4xl font-display">IT Experience</h2>
+    <h2 class="mb-8 text-4xl font-display">
+      {{ parent.$t('experience.header') }}
+    </h2>
     <component :is="injections.components.ExperienceItem">
       <template v-slot:position>
         Full Stack Developer
@@ -9,7 +11,7 @@
         Multinion
       </template>
       <template v-slot:period>
-        April 2018 - Now
+        {{ parent.$t('experience.multinion') }}
       </template>
     </component>
     <component :is="injections.components.ExperienceItem">
@@ -20,7 +22,7 @@
         Next42
       </template>
       <template v-slot:period>
-        October 2017 - March 2018
+        {{ parent.$t('experience.next42') }}
       </template>
     </component>
     <component :is="injections.components.ExperienceItem">
@@ -31,7 +33,7 @@
         SALESmanago
       </template>
       <template v-slot:period>
-        June 2017 - September 2017
+        {{ parent.$t('experience.uiSalesmanago') }}
       </template>
     </component>
     <component :is="injections.components.ExperienceItem">
@@ -42,7 +44,7 @@
         SALESmanago
       </template>
       <template v-slot:period>
-        November 2016 - May 2017
+        {{ parent.$t('experience.frontSalesmanago') }}
       </template>
     </component>
   </div>

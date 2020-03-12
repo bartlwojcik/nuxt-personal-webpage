@@ -1,14 +1,13 @@
 <template>
   <div class="section__content">
     <div class="w-full sm:w-10/12 contact">
-      <h2 class="mb-6 text-4xl font-display">Say Hi!</h2>
+      <h2 class="mb-6 text-4xl font-display">{{ $t('contact.header') }}</h2>
 
       <!-- Contact form elemenet -->
       <transition name="fade" mode="out-in">
         <div v-if="status === 'init' || status === 'inProgress'" key="form">
           <p v-if="status === 'init'" class="mb-6 text-sm font-body">
-            Feel free to make use of the contact form or reach me by writing
-            directly to
+            {{ $t('contact.content') }}
             <a
               class="font-medium email-link"
               href="mailto:bartlomiejwojcik92@gmai.com"
@@ -23,8 +22,10 @@
                 'error--email': $v.email.$error && !$v.email.email,
                 'error--required': $v.email.$error && !$v.email.required
               }"
+              :data-error-required="$t('contact.fieldRequired')"
+              :data-error-email="$t('contact.invalidEmail')"
             >
-              <label for="email">Email</label>
+              <label for="email">{{ $t('contact.email') }}</label>
               <input
                 v-model.trim.lazy="$v.email.$model"
                 type="email"
@@ -37,8 +38,9 @@
               :class="{
                 'error--required': $v.subject.$error && !$v.subject.required
               }"
+              :data-error-required="$t('contact.fieldRequired')"
             >
-              <label for="Subject">Subject</label>
+              <label for="Subject">{{ $t('contact.subject') }}</label>
               <input
                 v-model.trim.lazy="$v.subject.$model"
                 type="text"
@@ -51,8 +53,9 @@
               :class="{
                 'error--required': $v.msg.$error && !$v.msg.required
               }"
+              :data-error-required="$t('contact.fieldRequired')"
             >
-              <label for="msg">Message</label>
+              <label for="msg">{{ $t('contact.message') }}</label>
               <textarea
                 v-model.trim="$v.msg.$model"
                 rows="4"
@@ -65,7 +68,7 @@
                   class="mr-2"
                   :icon="['far', 'paper-plane']"
                 />
-                Send
+                {{ $t('contact.send') }}
               </AppButton>
             </div>
           </form>
@@ -78,15 +81,14 @@
           class="contact__message"
         >
           <p class="mb-6 text-center">
-            Thanks for the contact!<br />I'll try to respond as soon as
-            possible.
+            {{ $t('contact.successMsg') }}
           </p>
           <AppButton @click="reset">
             <font-awesome-icon
               class="mr-2"
               :icon="['fas', 'long-arrow-alt-left']"
             />
-            Back
+            {{ $t('contact.back') }}
           </AppButton>
         </div>
 
@@ -96,18 +98,18 @@
           key="error"
           class="contact__message"
         >
-          <p class="mb-6">Ups... something went wrong.</p>
+          <p class="mb-6">{{ $t('contact.errorMsg') }}</p>
           <div class="flex items-center justify-center">
             <AppButton class="mr-4" @click="status = 'init'">
               <font-awesome-icon
                 class="mr-2"
                 :icon="['fas', 'long-arrow-alt-left']"
               />
-              Back
+              {{ $t('contact.back') }}
             </AppButton>
             <AppButton href="mailto:bartlomiejwojcik92@gmail.com" class="ml-4">
               <font-awesome-icon class="mr-2" :icon="['far', 'envelope']" />
-              Use email client
+              {{ $t('contact.useClient') }}
             </AppButton>
           </div>
         </div>
@@ -246,11 +248,11 @@ export default {
     }
 
     &.error--required:after {
-      content: 'This field is required.';
+      content: attr(data-error-required);
     }
 
     &.error--email:after {
-      content: 'Please provide a valid email address.';
+      content: attr(data-error-email);
     }
   }
 }

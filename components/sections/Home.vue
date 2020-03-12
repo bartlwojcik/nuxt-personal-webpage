@@ -2,11 +2,11 @@
   <div class="h-full p-4 mx-4 home">
     <div class="flex items-center text-4xl md:text-5xl font-display">
       <h1 class="z-0">
-        <p class="home__header--line-1">Hi,</p>
-        <p class="home__header--line-2">
-          I'm <span class="relative font-bold name">Bartłomiej</span>
+        <p>
+          {{ $t('greeting1') }}
+          <span class="relative font-bold name">Bartłomiej</span>
         </p>
-        <p class="home__header--line-3">and I'm into Web Development.</p>
+        <p>{{ $t('greeting2') }}</p>
       </h1>
     </div>
     <div class="mt-4">
@@ -26,7 +26,7 @@
       </AppButton>
       <AppButton @click="scrollToContact">
         <font-awesome-icon class="mr-0 sm:mr-2" :icon="['far', 'envelope']" />
-        <span class="hidden sm:block"> Say Hi</span>
+        <span class="hidden sm:block"> {{ $t('sayHi') }}</span>
       </AppButton>
     </div>
   </div>
