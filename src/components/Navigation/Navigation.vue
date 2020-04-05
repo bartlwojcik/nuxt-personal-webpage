@@ -1,16 +1,16 @@
 <template>
   <div>
-    <button class="md:hidden" @click="$bus.$emit('toggle-nav-drawer', true)">
+    <button @click="$bus.$emit('toggle-nav-drawer', true)" class="md:hidden">
       <font-awesome-icon :icon="['fas', 'bars']" class="text-xl" />
     </button>
     <div class="hidden md:flex md:flex-no-wrap md:block">
-      <NavButton target="#about" :active="activeSection === 'about'">
+      <NavButton :active="activeSection === 'about'" target="#about">
         {{ $t('nav.about') }}
       </NavButton>
-      <NavButton target="#experience" :active="activeSection === 'experience'">
+      <NavButton :active="activeSection === 'experience'" target="#experience">
         {{ $t('nav.experience') }}
       </NavButton>
-      <NavButton target="#contact" :active="activeSection === 'contact'">
+      <NavButton :active="activeSection === 'contact'" target="#contact">
         {{ $t('nav.contact') }}
       </NavButton>
       <LangSelect />

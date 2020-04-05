@@ -7,6 +7,13 @@ export default {
     experience: 'Doświadczenie',
     contact: 'Kontakt'
   },
+  cv: {
+    get: 'Pobierz CV',
+    message:
+      'Możesz pobrać oryginalną kolorową wersję (którą rekomenduję dla ekranów) oraz dostosowaną do druku wersję z ograniczonymi kolorami.',
+    original: 'Pobierz oryginalny PDF',
+    print: 'Pobierz PDF do druku'
+  },
   about: {
     header: 'Kim jestem?',
     content:

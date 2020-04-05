@@ -2,8 +2,6 @@
   <component
     :is="props.href ? 'a' : 'button'"
     :href="props.href"
-    target="_blank"
-    class="relative inline-block h-10 mt-2 bg-transparent custom-button"
     :class="[
       { disabled: props.disabled },
       { icon: props.icon },
@@ -11,6 +9,8 @@
     ]"
     :type="props.submit ? 'submit' : 'button'"
     v-on="listeners"
+    target="_blank"
+    class="relative inline-block h-10 mt-2 bg-transparent custom-button"
   >
     <span
       class="flex items-center justify-center block h-full px-4 text-sm font-medium border-2 border-black border-solid font-body"
@@ -76,6 +76,11 @@ export default {
 
   &.icon {
     min-width: 60px;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
   }
 }
 

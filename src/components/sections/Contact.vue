@@ -5,7 +5,7 @@
 
       <!-- Contact form elemenet -->
       <transition name="fade" mode="out-in">
-        <div v-if="status === 'init' || status === 'inProgress'" key="form">
+        <div key="form" v-if="status === 'init' || status === 'inProgress'">
           <p v-if="status === 'init'" class="mb-6 text-sm font-body">
             {{ $t('contact.content') }}
             <a
@@ -15,58 +15,58 @@
               bartlomiejwojcik92@gmail.com </a
             >.
           </p>
-          <form class="contact__form" @submit.prevent="send">
+          <form @submit.prevent="send" class="contact__form">
             <div
-              class="contact__input required"
               :class="{
                 'error--email': $v.email.$error && !$v.email.email,
                 'error--required': $v.email.$error && !$v.email.required
               }"
               :data-error-required="$t('contact.fieldRequired')"
               :data-error-email="$t('contact.invalidEmail')"
+              class="contact__input required"
             >
               <label for="email">{{ $t('contact.email') }}</label>
               <input
                 v-model.trim.lazy="$v.email.$model"
+                @blur="$v.email.$touch()"
                 type="email"
                 name="email"
-                @blur="$v.email.$touch()"
               />
             </div>
             <div
-              class="contact__input required"
               :class="{
                 'error--required': $v.subject.$error && !$v.subject.required
               }"
               :data-error-required="$t('contact.fieldRequired')"
+              class="contact__input required"
             >
               <label for="Subject">{{ $t('contact.subject') }}</label>
               <input
                 v-model.trim.lazy="$v.subject.$model"
+                @blur="$v.subject.$touch()"
                 type="text"
                 name="subject"
-                @blur="$v.subject.$touch()"
               />
             </div>
             <div
-              class="contact__input required"
               :class="{
                 'error--required': $v.msg.$error && !$v.msg.required
               }"
               :data-error-required="$t('contact.fieldRequired')"
+              class="contact__input required"
             >
               <label for="msg">{{ $t('contact.message') }}</label>
               <textarea
                 v-model.trim="$v.msg.$model"
-                rows="4"
                 @blur="$v.msg.$touch()"
+                rows="4"
               ></textarea>
             </div>
             <div class="flex justify-end">
               <AppButton :disabled="$v.$invalid" submit>
                 <font-awesome-icon
-                  class="mr-2"
                   :icon="['far', 'paper-plane']"
+                  class="mr-2"
                 />
                 {{ $t('contact.send') }}
               </AppButton>
@@ -76,8 +76,8 @@
 
         <!-- Success screen -->
         <div
-          v-else-if="status === 'success'"
           key="success"
+          v-else-if="status === 'success'"
           class="contact__message"
         >
           <p class="mb-6 text-center">
@@ -85,8 +85,8 @@
           </p>
           <AppButton @click="reset">
             <font-awesome-icon
-              class="mr-2"
               :icon="['fas', 'long-arrow-alt-left']"
+              class="mr-2"
             />
             {{ $t('contact.back') }}
           </AppButton>
@@ -94,21 +94,21 @@
 
         <!-- Error screen -->
         <div
-          v-else-if="status === 'error'"
           key="error"
+          v-else-if="status === 'error'"
           class="contact__message"
         >
           <p class="mb-6">{{ $t('contact.errorMsg') }}</p>
           <div class="flex items-center justify-center">
-            <AppButton class="mr-4" @click="status = 'init'">
+            <AppButton @click="status = 'init'" class="mr-4">
               <font-awesome-icon
-                class="mr-2"
                 :icon="['fas', 'long-arrow-alt-left']"
+                class="mr-2"
               />
               {{ $t('contact.back') }}
             </AppButton>
             <AppButton href="mailto:bartlomiejwojcik92@gmail.com" class="ml-4">
-              <font-awesome-icon class="mr-2" :icon="['far', 'envelope']" />
+              <font-awesome-icon :icon="['far', 'envelope']" class="mr-2" />
               {{ $t('contact.useClient') }}
             </AppButton>
           </div>

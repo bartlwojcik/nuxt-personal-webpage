@@ -7,6 +7,13 @@ export default {
     experience: 'My experience',
     contact: 'Contact me'
   },
+  cv: {
+    get: 'Get resume',
+    message:
+      'You can download original colorful version (which I recommend for screens) or print-friendly version with limited colors.',
+    original: 'Get original PDF',
+    print: 'Get print-friendly PDF'
+  },
   about: {
     header: 'Who am I?',
     content:

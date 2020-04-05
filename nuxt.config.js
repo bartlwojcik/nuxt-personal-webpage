@@ -47,7 +47,8 @@ module.exports = {
       src: '~/plugins/v-waypoint.client.js',
       mode: 'client'
     },
-    '~/plugins/vuelidate'
+    '~/plugins/vuelidate',
+    '~/plugins/mq'
   ],
   serverMiddleware: [{ path: '/api/contact', handler: '~/api/contact' }],
   /*
@@ -94,11 +95,13 @@ module.exports = {
           },
           {
             set: '@fortawesome/free-regular-svg-icons',
-            icons: ['faPaperPlane', 'faEnvelope']
+            icons: ['faPaperPlane', 'faEnvelope', 'faFilePdf']
           },
           {
             set: '@fortawesome/free-solid-svg-icons',
             icons: [
+              'faTimes',
+              // 'faFileDownload',
               'faLongArrowAltLeft',
               'faLongArrowAltRight',
               'faBars',
