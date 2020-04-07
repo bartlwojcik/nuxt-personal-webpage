@@ -1,22 +1,9 @@
-# personal-webpage
+# nuxt-personal-webpage
 
-> Personal webpage
+Personal webpage project created with:
+- [Nuxt.js](https://nuxtjs.org) (Server Side Rendering)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-## Build Setup
+Deployed to [Firebase](https://firebase.google.com/).
 
-``` bash
-# install dependencies
-$ npm run install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+Accessible at [bartlwojcik.firebaseapp.com](https://bartlwojcik.firebaseapp.com).
