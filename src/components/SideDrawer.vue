@@ -4,7 +4,7 @@
       <button @click="closeDrawer">
         <font-awesome-icon
           :icon="['fas', 'long-arrow-alt-right']"
-          class="text-xl"
+          class="text-xl icon"
         />
       </button>
     </div>
@@ -29,4 +29,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.icon {
+  width: 1.5rem;
+}
+</style>

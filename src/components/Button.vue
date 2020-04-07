@@ -7,7 +7,7 @@
       { icon: props.icon },
       data.staticClass
     ]"
-    :type="props.submit ? 'submit' : 'button'"
+    :type="props.href ? null : props.submit ? 'submit' : 'button'"
     v-on="listeners"
     target="_blank"
     class="relative inline-block h-10 mt-2 bg-transparent custom-button"
@@ -81,6 +81,10 @@ export default {
   &:active,
   &:focus {
     outline: none;
+  }
+
+  svg {
+    width: 0.65rem;
   }
 }
 

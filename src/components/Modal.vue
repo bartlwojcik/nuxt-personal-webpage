@@ -57,6 +57,7 @@ export default {
 
       top: 0.75rem;
       right: 0.75rem;
+      width: 1rem;
       transition: opacity 0.3s ease;
     }
   }

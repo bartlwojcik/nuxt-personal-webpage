@@ -7,23 +7,23 @@
         class="mr-6"
         icon
       >
-        <font-awesome-icon class="mr-0" :icon="['fab', 'linkedin-in']" />
+        <font-awesome-icon :icon="['fab', 'linkedin-in']" class="mr-0" />
       </component>
       <component
         :is="injections.components.AppButton"
         href="https://github.com/bartlwojcik"
         icon
       >
-        <font-awesome-icon class="mr-0" :icon="['fab', 'github']" />
+        <font-awesome-icon :icon="['fab', 'github']" class="mr-0" />
       </component>
     </div>
     <p class="mt-8 text-sm font-display credits">
       Created by Bartłomiej Wójcik with
       <a href="https://nuxtjs.org/" target="_blank">Nuxt.js</a>,
       <a href="https://tailwindcss.com/" target="_blank">Tailwind CSS</a>
-      some <font-awesome-icon :icon="['fas', 'coffee']" /> and
-      <font-awesome-icon :icon="['fas', 'heart']" class="heart" /> for coding
-      &copy; <span class="font-bold">{{ new Date().getFullYear() }}</span
+      some <font-awesome-icon :icon="['fas', 'coffee']" class="icon" /> and
+      <font-awesome-icon :icon="['fas', 'heart']" class="heart icon" /> for
+      coding &copy; <span class="font-bold">{{ new Date().getFullYear() }}</span
       >.
     </p>
     <p class="mt-2 text-sm font-display credits">
@@ -66,5 +66,10 @@ export default {
   &:hover {
     @apply opacity-75;
   }
+}
+
+.icon {
+  display: inline-block;
+  width: 0.65rem;
 }
 </style>

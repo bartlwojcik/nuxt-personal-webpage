@@ -6,11 +6,11 @@
       </div>
       <div class="p-4 cv-modal__actions sm:p-8">
         <p class="mb-4">{{ $t('cv.message') }}</p>
-        <AppButton @click="openPdf()" class="w-full mb-2 sm:w-auto">
+        <AppButton @click="downloadCV()" class="w-full mb-2 sm:w-auto">
           <font-awesome-icon :icon="['far', 'file-pdf']" class="mr-2" />
           <span>{{ $t('cv.original') }}</span>
         </AppButton>
-        <AppButton @click="openPdf('print')" class="w-full sm:w-auto">
+        <AppButton @click="downloadCV('print')" class="w-full sm:w-auto">
           <font-awesome-icon :icon="['far', 'file-pdf']" class="mr-2" />
           <span>{{ $t('cv.print') }}</span>
         </AppButton>
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import Modal from '@/components/Modal'
 import SideDrawer from '@/components/SideDrawer'
 import Button from '@/components/Button'
@@ -31,15 +32,38 @@ export default {
     SideDrawer,
     AppButton: Button
   },
-  mounted() {
-    console.log(this.$mq)
-  },
   methods: {
-    openPdf(ver = 'original') {
-      const pdf = `/cv/${this.$root.$i18n.locale}/CV Bartłomiej Wójcik${
-        ver === 'print' ? ' print' : ''
-      }.pdf`
-      window.open(pdf)
+    async downloadCV(ver = 'original') {
+      try {
+        const filename = `CV Bartłomiej Wójcik${
+          ver === 'print' ? ' print' : ''
+        }.pdf`
+        const path = `/cv/${this.$root.$i18n.locale}/${filename}`
+
+        const { data } = await axios.get(path, {
+          responseType: 'arraybuffer',
+          headers: {
+            Accept: 'application/pdf'
+          }
+        })
+
+        const url = window.URL.createObjectURL(
+          new Blob([data], { type: 'application/pdf' })
+        )
+        console.log(url)
+        const link = document.createElement('a')
+
+        link.href = url
+        link.setAttribute('download', filename)
+        console.log(link)
+
+        document.body.appendChild(link)
+        link.click()
+
+        this.$bus.$emit('toggle-cv-modal', false)
+      } catch (error) {
+        console.error(error)
+      }
     }
   }
 }

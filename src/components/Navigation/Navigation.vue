@@ -1,7 +1,7 @@
 <template>
   <div>
     <button @click="$bus.$emit('toggle-nav-drawer', true)" class="md:hidden">
-      <font-awesome-icon :icon="['fas', 'bars']" class="text-xl" />
+      <font-awesome-icon :icon="['fas', 'bars']" class="text-xl icon" />
     </button>
     <div class="hidden md:flex md:flex-no-wrap md:block">
       <NavButton :active="activeSection === 'about'" target="#about">
@@ -36,3 +36,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.icon {
+  width: 1.25rem;
+}
+</style>

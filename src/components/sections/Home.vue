@@ -9,7 +9,7 @@
         <p>{{ $t('greeting2') }}</p>
       </h1>
     </div>
-    <div class="mt-4">
+    <div class="flex mt-4">
       <AppButton
         href="https://www.linkedin.com/in/bartlomiejwojcik92/"
         class="mr-2 sm:mr-6"
